@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<scroll-view class="scrollview" scroll-y="true">
+  <view class="header">
+    <text class="headerTitle">资料库</text>
+  </view>
+
+  <view class="funcList">
+    <block wx:for="{{function_list}}" wx:key="title">
+      <view class="funcLine">
+        <image src="{{item.icon}}" class="icon"></image>
+        <text class="text">{{item.title}}</text>
+      </view>
+    </block>
+  </view>
+
+  <text class="subtitle">最近添加</text>
+
+  <block wx:for="{{showData.content}}" wx:key="title">
+    <view class="boxview">
+      <image class="nm_cover" src="{{item.poster_img}}" mode="aspectFill"></image>
+      <text class="nm_title">{{item.title}}</text>
+      <text class="nm_artist">{{item.artist}}</text>
+    </view>
+  </block>
+</scroll-view>
+
+<view class="footer">
+  <text class="footerTitle">到底了</text>
+</view>
+
+<import src="/template/tab_bar/tab_bar.wxml" />
+<template is="tabBar" data="{{tabBar}}"></template>

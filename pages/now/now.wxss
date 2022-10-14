@@ -1,0 +1,170 @@
+/* pages/now/now.wxss */
+.item {
+  width: 450rpx;
+  height: 670rpx;
+  display: inline-block;
+  padding-left: 10px;
+  background-color: #fff;
+  vertical-align: top;
+}
+
+.item-last {
+  width: 450rpx;
+  height: 670rpx;
+  display: inline-block;
+  padding-left: 10px;
+  background-color: #fff;
+  vertical-align: top;
+  padding-right: 10px;
+}
+
+.introduce {
+  font-size: 15px;
+  line-height: 2;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #00000056;
+}
+
+.card {
+  width: 450rpx;
+  height: 590rpx;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  font-style: normal;
+}
+
+.poster {
+  width: 450rpx;
+  height: 450rpx;
+  border-radius: 8px 8px 0 0;
+  background: #aaaaaa;
+  margin: 0;
+  position: relative;
+  display: block;
+  transition: background .1s ease-in;
+  z-index: 1;
+}
+
+.cover {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  border: none;
+  border-radius: 8px 8px 0 0;
+}
+
+.info {
+  width: 450rpx;
+  height: 140rpx;
+  display: block;
+  border-radius: 0 0 8px 8px;
+  background-color: gray;
+}
+
+.info text {
+  position: relative;
+  z-index: 99;
+}
+
+.bg-cover {
+  width: 800rpx;
+  height: 800rpx;
+  transform: translate(-100rpx, -300rpx);
+  z-index: 0;
+  filter: blur(50px) brightness(80%);
+}
+
+.title {
+  display: block;
+  padding-top: 25rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  line-height: 33rpx;
+  font-weight: 600;
+  z-index: 99;
+}
+
+.artist {
+  font-size: 14px;
+  color: whitesmoke;
+  line-height: 33rpx;
+  text-align: center;
+  display: block;
+}
+
+.release_date {
+  font-size: 14px;
+  color: whitesmoke;
+  line-height: 33rpx;
+  text-align: center;
+  display: block;
+}
+
+.nm-item-first {
+  width: 350rpx;
+  height: 440rpx;
+  display: inline-block;
+  padding-left: 10px;
+  background-color: #fff;
+  box-sizing: content-box;
+  vertical-align: top;
+}
+
+.nm-item-last {
+  width: 350rpx;
+  height: 440rpx;
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 10px;
+  background-color: #fff;
+  box-sizing: content-box;
+  vertical-align: top;
+}
+
+.nm-item {
+  width: 350rpx;
+  height: 440rpx;
+  display: inline-block;
+  padding-left: 5px;
+  background-color: #fff;
+  box-sizing: content-box;
+  vertical-align: top;
+}
+
+.nm_cover {
+  object-fit: cover;
+  width: 100%;
+  height: 80%;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+}
+
+.nm_title {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
+  font-size: 14px;
+}
+
+.nm_artist {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: gray;
+  font-size: 14px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

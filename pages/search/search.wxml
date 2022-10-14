@@ -1,0 +1,33 @@
+<!--pages/search/search.wxml-->
+
+<view class="header">
+  <text class="headerTitle">搜索</text>
+</view>
+<view class="search">
+  <view class="search-bar">
+    <view class="search-bar-warper">
+      <icon type="search" size="20" />
+      <input bindchange="search" placeholder="歌曲/歌手/专辑" />
+    </view>
+  </view>
+  <view class="result">
+  </view>
+</view>
+
+
+<text class="subtitle">浏览类别</text>
+<block wx:for="{{showData.genre}}" wx:key="title">
+  <view class="contain">
+    <view class="boxview">
+      <image class="nm_cover" src="{{item.img}}" mode="aspectFill"></image>
+      <text class="nm_title">{{item.title}}</text>
+    </view>
+  </view>
+</block>
+
+<view class="footer">
+  <text class="footerTitle">到底了</text>
+</view>
+
+<import src="/template/tab_bar/tab_bar.wxml" />
+<template is="tabBar" data="{{tabBar}}"></template>

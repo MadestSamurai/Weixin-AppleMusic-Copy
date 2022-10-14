@@ -1,0 +1,44 @@
+<!--pages/album/album.wxml-->
+<view animation="{{animationData1}}" class="mask" catchtouchmove='true' wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData2}}" class="modalDlg" catchtouchmove='true' wx:if="{{showModalStatus}}">
+  <text bindtap="powerDrawer" class="ok" data-status="close">完成</text>
+  <text class="title">{{title}}</text>
+  <text class="text">{{introduction}}</text>
+</view>
+
+<view class="poster">
+  <image class="cover" src='{{cover}}' mode="aspectFill"></image>
+  <text class="title">{{title}}</text>
+  <text class="artist">{{artist}}</text>
+  <text class="genre-and-year">{{genre}} · {{year}}</text>
+  <view class='button' bindtap="play_album">
+    <view class='button-content'>
+      <image src="/image/menu/play.svg" class="icon"></image>
+      <text class="button-text">播放</text>
+    </view>
+  </view>
+  <view class='button' bindtap="shuffle_album">
+    <view class='button-content'>
+      <image src="/image/menu/shuffle.svg" class="icon"></image>
+      <text class="button-text">随机播放</text>
+    </view>
+  </view>
+</view>
+
+<text class="introduction" wx:if="{{hasIntro}}">{{introduction}}</text>
+<view class='more-button' wx:if="{{hasIntro}}">
+  <text class="more" bindtap="powerDrawer" data-status="open">更多</text>
+</view>
+
+<view class="song-list">
+  <block wx:for="{{songlist}}" wx:key="title">
+    <view class="song-line" bindtap="playSingle" data-item="{{index}}">
+      <text class="number">{{item["@attr"].rank}}</text>
+      <text class="song-title">{{item.name}}</text>
+    </view>
+  </block>
+</view>
+
+<view class="footer-info">
+  <text class="date">{{date}}</text>
+</view>

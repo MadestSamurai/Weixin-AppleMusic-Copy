@@ -1,0 +1,38 @@
+<!--pages/audio/audio.wxml-->
+<view class="music-container">
+  <image class="music-image" src="{{music.picUrl}}" mode="aspectFill"></image>
+  <view class="text">
+    <text class="music-name">{{music.name}}</text>
+    <text class="music-author">{{music.author}}</text>
+  </view>
+
+  <view class="progress-container">
+    <view class="bar-box">
+      <view class="current-progress" style="width:{{currentWidth}}rpx">
+        <view class="progress-circle"></view>
+      </view>
+    </view>
+    <view class="bar-text">
+      <view class="cur-text">
+        <text class="current-time">{{fmtCurrentTime}}</text>
+      </view>
+      <view class="left-text">
+        <text class="left-time">-{{fmtLeftTime}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="player">
+    <view class="btns">
+      <image class="prev-btn" id="prev" mode="aspectFit" src="/image/audio/backward.fill.svg" bindtap="handleSwitch"></image>
+      <image class="play-btn" mode="aspectFit" src="{{isPlay?'/image/audio/pause.fill.svg':'/image/audio/play.fill.svg'}}" bindtap="handlePlay"></image>
+      <image class="next-btn" id="next" mode="aspectFit" src="/image/audio/forward.fill.svg" bindtap="handleSwitch"></image>
+    </view>
+  </view>
+  <view class="options">
+    <view class="btns">
+      <image class="lyric-btn" mode="aspectFit" bindtap="" src="/image/audio/backward.svg"></image>
+      <image class="list-btn" mode="aspectFit" bindtap="showList" src="/image/audio/list.bullet.svg"></image>
+    </view>
+  </view>
+</view>

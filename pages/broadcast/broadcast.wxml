@@ -1,0 +1,35 @@
+<!--pages/broadcast/broadcast.wxml-->
+<view class="header">
+  <text class="headerTitle">广播</text>
+</view>
+
+<scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
+  <block wx:for="{{showData.recent}}" wx:key="title">
+    <div class="item" data-testid="{{item}}">
+      <text class="introduce">{{item.artist}}</text>
+      <text class="title">{{item.title}}</text>
+      <image class="cover" src="{{item.poster_img}}" mode="aspectFill"></image>
+    </div>
+  </block>
+</scroll-view>
+
+<block wx:for="{{showData.others}}" wx:key="title" wx:for-item="list">
+  <text class="subtitle">{{list.type}}</text>
+
+  <scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
+    <block wx:for="{{list.content}}" wx:key="title">
+      <div class="{{index==0?'nm-item-first':index==list.content.length-1?'nm-item-last':'nm-item'}}" data-testid="{{item}}">
+        <image class="nm_cover" src="{{item.poster_img}}" mode="aspectFill"></image>
+        <text class="nm_title">{{item.title}}</text>
+        <text class="nm_artist">{{item.artist}}</text>
+      </div>
+    </block>
+  </scroll-view>
+</block>
+
+<view class="footer">
+  <text class="footerTitle">到底了</text>
+</view>
+
+<import src="/template/tab_bar/tab_bar.wxml"/>
+<template is="tabBar" data="{{tabBar}}"></template>
