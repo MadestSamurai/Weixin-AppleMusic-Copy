@@ -1,5 +1,4 @@
 // pages/audio/audio.js
-import PubSub from "pubsub-js";
 var util = require('../../utils/util');
 const appInstance = getApp();
 
@@ -9,10 +8,16 @@ Page({
     music: {},
     fmtLeftTime: "0:00",
     fmtCurrentTime: "0:00",
-    currentWidth: 0
+    currentWidth: 0,
+    musicList:[], //歌曲列表
+    musicindex:0  //进入某首歌曲后，记录该歌曲在列表中的索引
   },
   onLoad(options) {
-    const music = JSON.parse(options.musicitem);
+    const musicList = JSON.parse(options.list);
+    this.setData({
+      musicList
+    });
+    const music = musicList[options.index];
     this.setData({
       music
     });
@@ -52,16 +57,16 @@ Page({
     })
     this.bam.onEnded(() => {
       // 音乐自然播放结束，则切换至下一首
-      PubSub.publish("switchsong", "next");
-      // 接收来自播放列表页的消息，显示切换后的歌曲详情
-      const eventId = PubSub.subscribe("refreshmusic", (msgName, music) => {
-        PubSub.unsubscribe(eventId);
-        this.setData({music})
-        this.musicControl();
-        this.setData({
-          fmtCurrentTime: "00:00"
-        })
-      })
+      let {musicindex,musicList} = this.data;
+      if(musicindex === musicList.length-1){
+        musicindex = 0;
+      }else{
+        musicindex++;
+      }
+      this.setData({musicindex});
+      const music = musicList[musicindex];
+      this.setData({music})
+      this.musicControl();
     })
     this.bam.onTimeUpdate(() => {
       const currentWidth = Math.floor(646 * this.bam.currentTime / this.bam.duration);
@@ -97,19 +102,36 @@ Page({
   },
   handleSwitch(event){
     const type = event.target.id;
-    // 发送消息，告诉播放列表页：切上一首还是下一首。prev代表切上一首，next代表切下一首。
-    PubSub.publish("switchsong",type);
-
-    // 接收来自播放列表页的消息，显示切换后的歌曲详情
-    const eventId = PubSub.subscribe("refreshmusic",(msgName,music) => {
-      PubSub.unsubscribe(eventId);
-      this.setData({music})
-      this.musicControl();
-    })
+    let {musicindex,musicList} = this.data;
+    if(type === "prev"){
+      if(musicindex===0) {
+        musicindex = musicList.length-1;
+      }else{
+        musicindex--;
+      }
+    }else if(type === "next"){
+      if(musicindex === musicList.length-1){
+        musicindex = 0;
+      }else{
+        musicindex++;
+      }
+    }
+    this.setData({musicindex});
+    const music = musicList[musicindex];
+    // 显示切换后的歌曲详情
+    this.setData({music})
+    this.musicControl();
+  },
+  handleTap(event){
+    const {musicitem,musicindex} = event.currentTarget.dataset;
+    this.setData({musicindex});
+    const music = musicitem;
+    this.setData({
+      music
+    });
+    this.musicControl();
   },
   showList(){
-    wx.navigateTo({
-      url: '/pages/music-lists/music-lists'
-    })
+    
   }
 })

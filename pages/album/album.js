@@ -1,5 +1,4 @@
 // pages/album/album.js
-import PubSub from "pubsub-js";
 var util = require('../../utils/util');
 const host = "http://49.234.6.100";
 
@@ -169,7 +168,7 @@ Page({
     }
     console.log(list);
     wx.navigateTo({
-      url: '/pages/music-lists/music-lists?list='+JSON.stringify(list),
+      url: '/pages/audio/audio?list='+JSON.stringify(list)+'&index='+event.target.dataset.item,
     })
   },
 
