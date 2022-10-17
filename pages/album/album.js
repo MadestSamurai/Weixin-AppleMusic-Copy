@@ -157,7 +157,7 @@ Page({
     console.log(event);
     let songList = this.data.songlist;
     var list = [];
-    for(var i = event.target.dataset.item, len = songList.length; i < len; i++) {
+    for(var i = 0, len = songList.length; i < len; i++) {
       var jsonObj = new Object();
       jsonObj.id = i;
       jsonObj.name = songList[i].name;
@@ -168,7 +168,7 @@ Page({
     }
     console.log(list);
     wx.navigateTo({
-      url: '/pages/audio/audio?list='+JSON.stringify(list)+'&index='+event.target.dataset.item,
+      url: '/pages/audio/audio?list='+JSON.stringify(list)+'&index='+event.target.dataset.item+'&album='+this.data.title,
     })
   },
 

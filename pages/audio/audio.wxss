@@ -2,40 +2,120 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: #2f434e;
+  background: transparent;
   overflow: hidden;
+  width: 100vw;
   height: 100vh;
 }
 
+.background {
+  position: absolute;
+  top: 0;
+  height: 80vh;
+  width: 80vh;
+  z-index: 1;
+  filter: blur(110px) brightness(75%);
+}
+
+.bg-large {
+  position: absolute;
+  top: -50vh;
+  height: 200vh;
+  width: 200vh;
+  filter: blur(110px) brightness(75%);
+}
+
+.rotate-animate{
+  animation: rotate 40s 1s linear infinite;
+}
+@keyframes rotate{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
 .text {
-  padding-top: 16%;
+  margin-top: 16%;
   width: 86%;
   display: flex;
   flex-direction: column;
+  z-index: 2;
+  position: absolute;
+  bottom: 30%;
+}
+
+.text-alt {
+  position: absolute;
+  margin-top: 12%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.text-album {
+  position: absolute;
+  margin-top: 30%;
+  width: 86%;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.text-album .caption {
+  color: #fff;
+  font-size: 36rpx;
+}
+
+.text-album .from {
+  color: #fff;
+  opacity: 0.6;
+  font-size: 28rpx;
+  line-height: 50rpx;
 }
 
 .music-name {
   color: #fff;
+  white-space: nowrap;
   font-size: 36rpx;
   line-height: 50rpx;
 }
 
 .music-author {
-  color: #bbb;
+  color: #fff;
+  opacity: 0.6;
+  white-space: nowrap;
   font-size: 36rpx;
   line-height: 50rpx;
 }
 
 .music-image {
+  position: absolute;
   width: 650rpx;
   height: 650rpx;
   margin-top: 20%;
   border-radius: 10px;
+  z-index: 1;
+}
+
+.music-image-alt {
+  position: absolute;
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 10%;
+  margin-right: 70%;
+  border-radius: 3px;
+  z-index: 1;
 }
 
 .player {
-  padding-top: 7%;
   width: 100%;
+  position: absolute;
+  bottom: 15%;
+  z-index: 2;
 }
 
 .player .btns {
@@ -52,20 +132,28 @@
 .progress-container {
   width: 100%;
   display: flex;
+  position: absolute;
+  bottom: 21%;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   margin-top: 4%;
   margin-bottom: 6%;
+  z-index: 2;
 }
 .progress-container .bar-box{
   width: 646rpx;
   height: 4rpx;
   line-height: 4rpx;
-
-  background: #888;
+  background: rgba(255, 255, 255, 0.6);
 }
 .bar-box .current-progress{
+  position: relative;
+  height: 4rpx;
+  line-height: 4rpx;
+  background: #fff;
+}
+.bar-box .left-progress{
   position: relative;
   height: 4rpx;
   line-height: 4rpx;
@@ -86,11 +174,13 @@
   margin: 0 40rpx;
 }
 
+
 .bar-text{
   margin-top: 2%;
   display: flex;
   flex-direction: row;
   width: 97%;
+  opacity: 0.6;
 }
 
 .bar-text .cur-text{
@@ -104,8 +194,10 @@
 }
 
 .options {
-  padding-top: 7%;
   width: 100%;
+  position: absolute;
+  bottom: 7%;
+  z-index: 2;
 }
 
 .options .btns {
@@ -117,13 +209,9 @@
 .options .btns image {
   width: 45rpx;
   height: 45rpx;
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
-.index-container{
-  padding: 20rpx;
-  background:#624d2e
-}
 .header{
   display: flex;
   align-items: center;
@@ -141,40 +229,39 @@
   font-size: 28rpx;
 }
 .music-list{
-  margin-top: 20rpx;
+  position: absolute;
+  top: 24%;
   color: #fff;
-  height: calc(100vh - 88rpx);
+  width: 86%;
+  height: 45%;
+  z-index: 2;
 }
-.music-item{
+.list-item{
   display: flex;
   align-items: center;
   height: 100rpx;
   margin: 20rpx 0;
   position: relative;
 }
-.music-item .music-index{
+.list-item .list-index{
   width: 50rpx;
   font-size: 28rpx;
-  color: #aaa;
+  color: #fff;
+  opacity: 0.6;
 }
-.music-item .music-image{
+.list-item .list-image{
   width: 80rpx;
   height: 80rpx;
   border-radius: 6rpx;
   margin-right: 20rpx;
 }
-.music-item .music-info{
+.list-item .list-info{
   display: flex;
   flex-direction: column;
 }
-.music-item .music-info .music-author{
+.list-item .list-info .list-author{
   font-size: 28rpx;
-  color: #aaa;
+  color: #fff;
+  opacity: 0.6;
   margin-top: 10rpx;
-}
-.music-item .btn-more{
-  width: 36rpx;
-  height: 36rpx;
-  position: absolute;
-  right: 0;
 }

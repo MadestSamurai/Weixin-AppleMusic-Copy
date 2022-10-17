@@ -1,15 +1,14 @@
 {
   "pages": [
     "pages/now/now",
-    "pages/music-lists/music-lists",
     "pages/storage/storage",
     "pages/logs/logs",
     "pages/explore/explore",
     "pages/broadcast/broadcast",
     "pages/album/album",
     "pages/audio/audio",
-    "pages/search/search"
-
+    "pages/search/search",
+    "pages/artist/artist"
   ],
   "window": {
     "backgroundTextStyle": "light",

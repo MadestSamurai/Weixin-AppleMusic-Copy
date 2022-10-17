@@ -1,7 +1,28 @@
 <!--pages/audio/audio.wxml-->
-<view class="music-container">
-  <image class="music-image" src="{{music.picUrl}}" mode="aspectFill"></image>
-  <view class="text">
+<view class="music-container" catchtouchmove='true'>
+  <image class="background rotate-animate" src="{{music.picUrl}}"></image>
+  <image class="bg-large" src="{{music.picUrl}}"></image>
+  <image class="music-image" animation="{{animationData}}" wx:if="{{!isList}}" src="{{music.picUrl}}" mode="aspectFill"></image>
+  <image class="music-image-alt" animation="{{animationData}}" wx:if="{{isList}}" src="{{music.picUrl}}" mode="aspectFill"></image>
+  <view class="text-alt" animation="{{animationData}}" wx:if="{{isList}}">
+    <text class="music-name">{{music.name}}</text>
+    <text class="music-author">{{music.author}}</text>
+  </view>
+  <view class="text-album" animation="{{animationData}}" wx:if="{{isList}}">
+    <text class="caption">待播清单</text>
+    <text class="from">来自{{musicFrom}}</text>
+  </view>
+  <scroll-view class="music-list" animation="{{animationData}}" enable-flex scroll-y wx:if="{{isList}}">
+    <view class="list-item" wx:for="{{musicList}}" wx:key="id" bindtap="handleTap" data-musicindex="{{index}}" data-musicitem="{{item}}">
+      <text class="list-index">{{index+1}}</text>
+      <image class="list-image" src="{{item.picUrl}}"></image>
+      <view class="list-info">
+        <text class="list-name">{{item.name}}</text>
+        <text class="list-author">{{item.author}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="text" animation="{{animationData}}" wx:if="{{!isList}}">
     <text class="music-name">{{music.name}}</text>
     <text class="music-author">{{music.author}}</text>
   </view>
@@ -31,22 +52,8 @@
   </view>
   <view class="options">
     <view class="btns">
-      <image class="lyric-btn" mode="aspectFit" bindtap="" src="/image/audio/backward.svg"></image>
-      <image class="list-btn" mode="aspectFit" bindtap="showList" src="/image/audio/list.bullet.svg"></image>
+      <image class="lyric-btn" mode="aspectFit" bindtap="" data-status="open" src="/image/audio/backward.svg"></image>
+      <image class="list-btn" mode="aspectFit" bindtap="powerDrawer" data-status="close" src="/image/audio/list.bullet.svg"></image>
     </view>
   </view>
-</view>
-
-<view class="index-container">
-  <scroll-view class="music-list" enable-flex scroll-y >
-    <view class="music-item" wx:for="{{musicList}}" wx:key="id" bindtap="handleTap" data-musicindex="{{index}}" data-musicitem="{{item}}">
-      <text class="music-index">{{index+1}}</text>
-      <image class="music-image" src="{{item.picUrl}}"></image>
-      <view class="music-info">
-        <text class="musci-name">{{item.name}}</text>
-        <text class="music-author">{{item.author}}</text>
-      </view>
-      <image class="btn-more" src="/static/images/icon-more.png"></image>
-    </view>
-  </scroll-view>
 </view>

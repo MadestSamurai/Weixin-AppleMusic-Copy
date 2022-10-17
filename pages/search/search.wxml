@@ -1,22 +1,20 @@
 <!--pages/search/search.wxml-->
 
-<view class="header">
+<view class="header" wx:if="{{searchKey == ''}}">
   <text class="headerTitle">搜索</text>
 </view>
 <view class="search">
   <view class="search-bar">
     <view class="search-bar-warper">
       <icon type="search" size="20" />
-      <input bindchange="search" placeholder="歌曲/歌手/专辑" />
+      <input bindconfirm="confirm" placeholder="歌曲/歌手/专辑" placeholder-class='phstyle' class="input"></input>
     </view>
-  </view>
-  <view class="result">
   </view>
 </view>
 
 
-<text class="subtitle">浏览类别</text>
-<block wx:for="{{showData.genre}}" wx:key="title">
+<text class="subtitle" wx:if="{{searchKey == ''}}">浏览类别</text>
+<block wx:for="{{showData.genre}}" wx:key="title" wx:if="{{searchKey == ''}}">
   <view class="contain">
     <view class="boxview">
       <image class="nm_cover" src="{{item.img}}" mode="aspectFill"></image>
@@ -25,7 +23,58 @@
   </view>
 </block>
 
-<view class="footer">
+<view class="menuview" wx:if="{{searchKey != ''}}">
+  <block wx:for="{{menutxt}}">
+    <view class="menuitem {{index==currentIndex?'on':''}}" bindtap="clickitem" data-index="{{index}}">
+      <text>{{item}}</text>
+    </view>
+  </block>
+</view>
+
+<view class="contentview" wx:if="{{searchKey != ''}}">
+  <swiper class="swiperview" bindchange="changeitem" current="{{currentIndex}}">
+    <swiper-item>
+      <scroll-view class="music-list" enable-flex scroll-y>
+        <view class="list-item" wx:for="{{artists}}" wx:key="id" bindtap="handleTapArtist" data-musicitem="{{item}}">
+          <image class="list-image" src='{{artistArt[index]==""?item.image[3]["#text"]:artistArt[index]}}'></image>
+          <view class="list-info">
+            <text class="list-name">{{item.name}}</text>
+          </view>
+        </view>
+        <button class='next-button' bindtap="loadnextArtist" style="width: 100%;">继续加载</button>
+        <view class="footer"></view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view class="music-list" enable-flex scroll-y>
+        <view class="list-item" wx:for="{{albums}}" wx:key="id" bindtap="handleTap" data-musicindex="{{index}}" data-musicitem="{{item}}">
+          <image class="list-image" src='{{item.image[3]["#text"]}}'></image>
+          <view class="list-info">
+            <text class="list-name">{{item.name}}</text>
+            <text class="list-author">{{item.artist}}</text>
+          </view>
+        </view>
+        <button class='next-button' bindtap="loadnextAlbum" style="width: 100%;">继续加载</button>
+        <view class="footer"></view>
+      </scroll-view>
+    </swiper-item>
+    <swiper-item>
+      <scroll-view class="music-list" enable-flex scroll-y>
+        <view class="list-item" wx:for="{{tracks}}" wx:key="id" bindtap="handleTap" data-musicindex="{{index}}" data-musicitem="{{item}}">
+          <image class="list-image" src='{{trackArt[index]==""?item.image[3]["#text"]:trackArt[index]}}'></image>
+          <view class="list-info">
+            <text class="list-name">{{item.name}}</text>
+            <text class="list-author">{{item.artist}}</text>
+          </view>
+        </view>
+        <button class='next-button' bindtap="loadnextTrack" style="width: 100%;">继续加载</button>
+        <view class="footer"></view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="footer" wx:if="{{searchKey == ''}}">
   <text class="footerTitle">到底了</text>
 </view>
 

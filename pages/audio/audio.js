@@ -4,13 +4,15 @@ const appInstance = getApp();
 
 Page({
   data: {
+    isList: false,
     isPlay: false,
     music: {},
+    musicFrom: 'Unknown',
     fmtLeftTime: "0:00",
     fmtCurrentTime: "0:00",
     currentWidth: 0,
-    musicList:[], //歌曲列表
-    musicindex:0  //进入某首歌曲后，记录该歌曲在列表中的索引
+    musicList: [], //歌曲列表
+    musicindex: 0 //进入某首歌曲后，记录该歌曲在列表中的索引
   },
   onLoad(options) {
     const musicList = JSON.parse(options.list);
@@ -20,6 +22,10 @@ Page({
     const music = musicList[options.index];
     this.setData({
       music
+    });
+    const musicFrom = options.album;
+    this.setData({
+      musicFrom
     });
 
     const {
@@ -57,15 +63,22 @@ Page({
     })
     this.bam.onEnded(() => {
       // 音乐自然播放结束，则切换至下一首
-      let {musicindex,musicList} = this.data;
-      if(musicindex === musicList.length-1){
+      let {
+        musicindex,
+        musicList
+      } = this.data;
+      if (musicindex === musicList.length - 1) {
         musicindex = 0;
-      }else{
+      } else {
         musicindex++;
       }
-      this.setData({musicindex});
+      this.setData({
+        musicindex
+      });
       const music = musicList[musicindex];
-      this.setData({music})
+      this.setData({
+        music
+      })
       this.musicControl();
     })
     this.bam.onTimeUpdate(() => {
@@ -100,38 +113,99 @@ Page({
       this.bam.pause();
     }
   },
-  handleSwitch(event){
+  handleSwitch(event) {
     const type = event.target.id;
-    let {musicindex,musicList} = this.data;
-    if(type === "prev"){
-      if(musicindex===0) {
-        musicindex = musicList.length-1;
-      }else{
+    let {
+      musicindex,
+      musicList
+    } = this.data;
+    if (type === "prev") {
+      if (musicindex === 0) {
+        musicindex = musicList.length - 1;
+      } else {
         musicindex--;
       }
-    }else if(type === "next"){
-      if(musicindex === musicList.length-1){
+    } else if (type === "next") {
+      if (musicindex === musicList.length - 1) {
         musicindex = 0;
-      }else{
+      } else {
         musicindex++;
       }
     }
-    this.setData({musicindex});
+    this.setData({
+      musicindex
+    });
     const music = musicList[musicindex];
     // 显示切换后的歌曲详情
-    this.setData({music})
+    this.setData({
+      music
+    })
     this.musicControl();
   },
-  handleTap(event){
-    const {musicitem,musicindex} = event.currentTarget.dataset;
-    this.setData({musicindex});
+  handleTap(event) {
+    const {
+      musicitem,
+      musicindex
+    } = event.currentTarget.dataset;
+    this.setData({
+      musicindex
+    });
     const music = musicitem;
     this.setData({
       music
     });
     this.musicControl();
   },
-  showList(){
-    
+  showList() {
+    if (this.data.isList) {
+      this.setData({
+        isList: false
+      });
+    } else {
+      this.setData({
+        isList: true
+      });
+    }
+  },
+
+  powerDrawer: function() {
+    var currentStatus = this.data.isList
+    this.fade(currentStatus)
+  },
+
+  fade: function(currentStatus) {
+    var animation = wx.createAnimation({
+      duration: 300, //动画时长  
+      timingFunction: "linear", 
+      delay: 0 //0则不延迟  
+    });
+
+    // 将这个动画实例赋给当前的动画实例  
+    this.animation = animation;
+
+    animation.opacity(0).step();
+
+    // 导出动画对象赋给数据对象储存  
+    this.setData({
+      animationData: animation.export()
+    })
+
+    // 设置定时器到指定时候后，执行第二组动画  
+    setTimeout(function () {
+      animation.opacity(1).step();
+      this.setData({
+        animationData: animation
+      })
+
+      if (currentStatus) {
+        this.setData({
+          isList: false
+        });
+      } else {
+        this.setData({
+          isList: true
+        });
+      }
+    }.bind(this), 200)
   }
 })
