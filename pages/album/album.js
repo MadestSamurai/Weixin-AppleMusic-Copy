@@ -52,7 +52,7 @@ Page({
           })
         } else {
           var tracks = new Array();
-          if (data.tracks.track.isArray) {
+          if (Array.isArray(data.tracks.track)) {
             tracks = data.tracks.track;
           } else {
             options.title = options.title + ' - Single';
@@ -62,7 +62,7 @@ Page({
             cover: data.image[3]["#text"],
             title: options.title,
             artist: options.artist,
-            genre: 'unknown',
+            genre: data.tags.tag[0].name,
             year: date.getFullYear(),
             hasIntro: false,
             introduction: "",
@@ -168,7 +168,7 @@ Page({
     }
     console.log(list);
     wx.navigateTo({
-      url: '/pages/audio/audio?list='+JSON.stringify(list)+'&index='+event.target.dataset.item+'&album='+this.data.title,
+      url: '../audio/audio?list='+JSON.stringify(list)+'&index='+event.target.dataset.item+'&album='+this.data.title,
     })
   },
 
