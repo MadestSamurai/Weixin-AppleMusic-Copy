@@ -1,2 +1,31 @@
 <!--pages/artist/artist.wxml-->
-<image class="top-image" src="https://e-cdns-images.dzcdn.net/images/artist/b6bd8b6886626e22d7c03ece3be62de7/500x500-000000-80-0-0.jpg"></image>
+<view class="top">
+  <div class="box-shadow">
+    <image class="top-image" src="{{artistImage}}" mode="aspectFill"></image>
+  </div>
+  <text class="top-name">{{artistName}}</text>
+</view>
+
+<text class="subtitle">歌曲排行</text>
+<view class="list-item" wx:for="{{tracks}}" wx:key="id" bindtap="handleTap" data-musicindex="{{index}}" data-musicitem="{{item}}">
+  <image class="list-image" src='{{trackArt[index]}}'></image>
+  <view class="list-info">
+    <text class="list-name">{{item.name}}</text>
+  </view>
+</view>
+<text class="subtitle">代表专辑</text>
+<scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
+  <block wx:for="{{albums}}" wx:key="title">
+    <div class="{{index==0?'item-first':index==albums.length-1?'item-last':'item'}}" data-testid="{{item}}">
+      <image class="cover" src='{{item.image[3]["#text"]}}' mode="aspectFill"></image>
+      <text class="title">{{item.name}}</text>
+    </div>
+  </block>
+</scroll-view>
+<text class="subtitle">相关艺人</text>
+<block wx:for="{{similarArtist}}" wx:key="title">
+  <view class="boxview">
+    <image class="nm_cover" src='{{artistArt[index]}}' mode="aspectFill"></image>
+    <text class="nm_title">{{item.name}}</text>
+  </view>
+</block>

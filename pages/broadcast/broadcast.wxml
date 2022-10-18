@@ -4,11 +4,23 @@
 </view>
 
 <scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
-  <block wx:for="{{showData.recent}}" wx:key="title">
+  <block wx:for="{{showData.suggestion}}" wx:key="title">
     <div class="item" data-testid="{{item}}">
       <text class="introduce">{{item.artist}}</text>
       <text class="title">{{item.title}}</text>
       <image class="cover" src="{{item.poster_img}}" mode="aspectFill"></image>
+    </div>
+  </block>
+</scroll-view>
+
+<text class="subtitle">最近播放</text>
+
+<scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
+  <block wx:for="{{showData.recent}}" wx:key="title">
+    <div class="{{index==0?'nm-item-first':index==showData.recent.length-1?'nm-item-last':'nm-item'}}" data-testid="{{item}}">
+      <image class="nm_cover" src="{{item.poster_img}}" mode="aspectFill"></image>
+      <text class="nm_title">{{item.title}}</text>
+      <text class="nm_artist">{{item.artist}}</text>
     </div>
   </block>
 </scroll-view>

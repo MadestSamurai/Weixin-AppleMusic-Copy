@@ -158,8 +158,9 @@
 
 .list-item .list-info .list-name{
   width: 75vw;
+  text-overflow: ellipsis;
   white-space: nowrap;
-  text-overflow:ellipsis;
+  overflow: hidden;
 }
 
 .list-item .list-info .list-author{

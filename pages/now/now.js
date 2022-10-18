@@ -19,9 +19,7 @@ Page({
         limit: limit
       },
       success: (resp) => {
-        console.log(resp);
         let lists = resp.data.tracks.track;
-        console.log(lists);
         for(var i in lists) {
           console.log(lists[i].image[3]["#text"])
           this.getInfo(lists[i].artist.name, lists[i].name, lists[i].mbid)
@@ -42,7 +40,6 @@ Page({
         mbid: mbid
       },
       success: (resp) => {
-        console.log(resp.data.track);
         var year = new Date(resp.data.track.wiki.published);
         resp.data.track.year = year.getFullYear();
         this.setData({
@@ -69,7 +66,7 @@ Page({
     getApp().editTabBar();
     this.getTopTracks(5);
     wx.request({
-      url: 'http://49.234.6.100:5000/query',
+      url: 'http://49.234.6.100:5000/now',
       success: (resp) => {
         console.log(resp);
         this.setData({

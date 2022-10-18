@@ -1,1 +1,138 @@
 /* pages/artist/artist.wxss */
+.top{
+  height: 50vh;
+  width: 100vw;
+}
+
+.box-shadow {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  box-shadow: inset 0 -2em 50px black;
+}
+
+.top-image{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url(http://49.234.6.100/images/default-artist.png);
+  background-size: 100% 100%;
+  filter: linear-gradient(to bottom, brightness(100%), brightness(50%));
+  z-index: -1;
+}
+
+.top-name{
+  display: inline-block;
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+  transform: translate(10px, -50px);
+  z-index: 2;
+}
+
+.list-item{
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  margin: 20rpx;
+  position: relative;
+}
+.list-item .list-index{
+  width: 50rpx;
+  font-size: 28rpx;
+  color: #fff;
+  opacity: 0.6;
+}
+.list-item .list-image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 6rpx;
+  margin-right: 20rpx;
+  background: url(http://49.234.6.100/images/default-artist.png);
+  background-size: 100% 100%;
+}
+.list-item .list-info{
+  display: flex;
+  flex-direction: column;
+}
+
+.item-first {
+  width: 350rpx;
+  height: 440rpx;
+  display: inline-block;
+  padding-left: 10px;
+  background-color: #fff;
+  box-sizing: content-box;
+  vertical-align: top;
+}
+
+.item-last {
+  width: 350rpx;
+  height: 440rpx;
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 10px;
+  background-color: #fff;
+  box-sizing: content-box;
+  vertical-align: top;
+}
+
+.item {
+  width: 350rpx;
+  height: 440rpx;
+  display: inline-block;
+  padding-left: 5px;
+  background-color: #fff;
+  box-sizing: content-box;
+  vertical-align: top;
+}
+
+.cover {
+  object-fit: cover;
+  width: 100%;
+  height: 80%;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  background: url(http://49.234.6.100/images/default-artist.png);
+  background-size: 100% 100%;
+}
+
+.title {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
+  font-size: 14px;
+}
+
+.nm_cover {
+  width: 100%;
+  height: 80%;
+  display: inline-block;
+  border: none;
+  border-radius: 100%;
+  background: url(http://49.234.6.100/images/default-artist.png);
+  background-size: 100% 100%;
+}
+
+.nm_title {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  color: black;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.boxview {
+  width: 46%;
+  height: 440rpx;
+  margin: 4px;
+  display: inline-block;
+  padding: 5px 0 0 5px;
+  text-align: center;
+}

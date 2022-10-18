@@ -15,7 +15,7 @@ Page({
     getApp().editTabBar();
 
     wx.request({
-      url: 'http://49.234.6.100:5000/query',
+      url: 'http://49.234.6.100:5000/broadcast',
       success: (resp) => {
         console.log(resp);
         this.setData({

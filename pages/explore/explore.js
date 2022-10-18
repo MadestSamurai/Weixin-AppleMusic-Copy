@@ -5,8 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentIndex: 0,
-    menutxt: ["现在就听", "浏览", "广播", "资料库", "搜索"],
     showData: {}
   },
 
@@ -34,7 +32,7 @@ Page({
     getApp().editTabBar();
 
     wx.request({
-      url: 'http://49.234.6.100:5000/query',
+      url: 'http://49.234.6.100:5000/explore',
       success: (resp) => {
         console.log(resp);
         this.setData({

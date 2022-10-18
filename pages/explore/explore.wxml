@@ -4,7 +4,7 @@
 </view>
 
 <scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
-  <block wx:for="{{showData.explore.suggestion}}" wx:key="title">
+  <block wx:for="{{showData.suggestion}}" wx:key="title">
     <div class="item" data-testid="{{item}}">
       <text class="introduce">{{item.introduce}}</text>
       <text class="title">{{item.title}}</text>
@@ -14,7 +14,7 @@
   </block>
 </scroll-view>
 
-<block wx:for="{{showData.explore.others}}" wx:key="title" wx:for-item="list">
+<block wx:for="{{showData.others}}" wx:key="title" wx:for-item="list">
   <text class="subtitle">{{list.type}}</text>
 
   <scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
