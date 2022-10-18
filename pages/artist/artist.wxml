@@ -7,7 +7,7 @@
 </view>
 
 <text class="subtitle">歌曲排行</text>
-<view class="list-item" wx:for="{{tracks}}" wx:key="id" bindtap="handleTap" data-musicindex="{{index}}" data-musicitem="{{item}}">
+<view class="list-item" wx:for="{{tracks}}" wx:key="id" bindtap="handleTapTrack" data-musicindex="{{index}}" data-musicitem="{{item}}">
   <image class="list-image" src='{{trackArt[index]}}'></image>
   <view class="list-info">
     <text class="list-name">{{item.name}}</text>
@@ -16,7 +16,7 @@
 <text class="subtitle">代表专辑</text>
 <scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
   <block wx:for="{{albums}}" wx:key="title">
-    <div class="{{index==0?'item-first':index==albums.length-1?'item-last':'item'}}" data-testid="{{item}}">
+    <div class="{{index==0?'item-first':index==albums.length-1?'item-last':'item'}}" bindtap="handleTapAlbum" data-musicindex="{{index}}" data-musicitem="{{item}}">
       <image class="cover" src='{{item.image[3]["#text"]}}' mode="aspectFill"></image>
       <text class="title">{{item.name}}</text>
     </div>
@@ -24,7 +24,7 @@
 </scroll-view>
 <text class="subtitle">相关艺人</text>
 <block wx:for="{{similarArtist}}" wx:key="title">
-  <view class="boxview">
+  <view class="boxview" bindtap="handleTapArtist" data-musicindex="{{index}}" data-musicitem="{{item}}">
     <image class="nm_cover" src='{{artistArt[index]}}' mode="aspectFill"></image>
     <text class="nm_title">{{item.name}}</text>
   </view>

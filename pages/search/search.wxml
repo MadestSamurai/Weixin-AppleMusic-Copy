@@ -47,7 +47,7 @@
     </swiper-item>
     <swiper-item>
       <scroll-view class="music-list" enable-flex scroll-y>
-        <view class="list-item" wx:for="{{albums}}" wx:key="id" bindtap="handleTap" data-musicindex="{{index}}" data-musicitem="{{item}}">
+        <view class="list-item" wx:for="{{albums}}" wx:key="id" bindtap="handleTapAlbum" data-musicindex="{{index}}" data-musicitem="{{item}}">
           <image class="list-image" src='{{item.image[3]["#text"]}}'></image>
           <view class="list-info">
             <text class="list-name">{{item.name}}</text>
@@ -60,7 +60,7 @@
     </swiper-item>
     <swiper-item>
       <scroll-view class="music-list" enable-flex scroll-y>
-        <view class="list-item" wx:for="{{tracks}}" wx:key="id" bindtap="handleTap" data-musicindex="{{index}}" data-musicitem="{{item}}">
+        <view class="list-item" wx:for="{{tracks}}" wx:key="id" bindtap="handleTapSingle" data-musicindex="{{index}}" data-musicitem="{{item}}">
           <image class="list-image" src='{{trackArt[index]==""?item.image[3]["#text"]:trackArt[index]}}'></image>
           <view class="list-info">
             <text class="list-name">{{item.name}}</text>

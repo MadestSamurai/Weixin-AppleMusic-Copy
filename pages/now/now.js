@@ -50,9 +50,7 @@ Page({
   },
 
   checkAlbum(event){
-    console.log(event);
     let clickText = event.currentTarget.dataset.item;
-    console.log(clickText);
 
     wx.navigateTo({
       url: '../album/album?artist=' + clickText.album.artist + '&title=' + clickText.album.title + '&published=' + clickText.wiki.published

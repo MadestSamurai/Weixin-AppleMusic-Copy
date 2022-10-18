@@ -1,4 +1,6 @@
 // pages/search/search.js
+var util = require('../../utils/util');
+const host = "http://49.234.6.100";
 var limit = 20
 var pagesTrack = 1
 var pagesAlbum = 1
@@ -250,9 +252,35 @@ Page({
     var artistinfo = event.currentTarget.dataset.musicitem
     console.log(artistinfo)
     wx.navigateTo({
-      url: '/pages/artist/artist?name=' + artistinfo.name + '&mbid=' + artistinfo.mbid
+      url: '../artist/artist?name=' + artistinfo.name + '&mbid=' + artistinfo.mbid
     })
   },
+
+  handleTapAlbum(event) {
+    var albuminfo = event.currentTarget.dataset.musicitem
+    console.log(albuminfo)
+    wx.navigateTo({
+      url: '../album/album?artist=' + albuminfo.artist + '&title=' + albuminfo.name
+    })
+  },
+
+  handleTapSingle(event) {
+    var singleinfo = event.currentTarget.dataset.musicitem
+    console.log(singleinfo)
+    var list = [];
+    var jsonObj = new Object();
+    jsonObj.id = 0;
+    jsonObj.name = singleinfo.name;
+    jsonObj.author = singleinfo.artist;
+    jsonObj.picUrl = this.data.trackArt[event.currentTarget.dataset.musicindex];
+    jsonObj.url = host + '/music/Dangerous World/' + util.zeroFill(Math.round(Math.random()*15) + 1 + '', 2) + '.mp3'
+    list.push(jsonObj);
+    console.log(list);
+    wx.navigateTo({
+      url: '../audio/audio?list=' + JSON.stringify(list) + '&index=' + 0 + '&album=' + "搜索",
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
