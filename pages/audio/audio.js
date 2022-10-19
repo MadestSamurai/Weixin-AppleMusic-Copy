@@ -92,8 +92,11 @@ Page({
         fmtLeftTime
       });
     })
-
-    this.handlePlay();
+    const isPlay = true;
+    this.setData({
+      isPlay
+    });
+    this.musicControl();
   },
   handlePlay() {
     const isPlay = !this.data.isPlay;
@@ -206,6 +209,6 @@ Page({
           isList: true
         });
       }
-    }.bind(this), 200)
+    }.bind(this), 300)
   }
 })

@@ -207,7 +207,7 @@ Page({
     var jsonObj = new Object();
     jsonObj.id = 0;
     jsonObj.name = singleinfo.name;
-    jsonObj.author = singleinfo.artist;
+    jsonObj.author = singleinfo.artist.name;
     jsonObj.picUrl = this.data.trackArt[event.currentTarget.dataset.musicindex];
     jsonObj.url = host + '/music/Dangerous World/' + util.zeroFill(Math.round(Math.random()*15) + 1 + '', 2) + '.mp3'
     list.push(jsonObj);

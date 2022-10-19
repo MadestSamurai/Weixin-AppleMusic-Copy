@@ -58,6 +58,7 @@ Page({
             options.title = options.title + ' - Single';
             tracks[0] = data.tracks.track;
           }
+          if(data.tags == "") data.tags = {"tag":[{"name": "unknown"}]}
           this.setData({
             cover: data.image[3]["#text"],
             title: options.title,
@@ -84,9 +85,7 @@ Page({
     this.fade(currentStatus)
 
     if (currentStatus == "open") {
-      this.setData({
-        showModalStatus: true
-      });
+      this.setData({showModalStatus: true});
     }
   },
 
@@ -168,7 +167,7 @@ Page({
     }
     console.log(list);
     wx.navigateTo({
-      url: '../audio/audio?list='+JSON.stringify(list)+'&index='+event.target.dataset.item+'&album='+this.data.title,
+      url: '../audio/audio?list='+JSON.stringify(list)+'&index='+event.currentTarget.dataset.item+'&album='+this.data.title,
     })
   },
 
