@@ -52,7 +52,7 @@
   </view>
   <view class="options">
     <view class="btns">
-      <image class="lyric-btn" mode="aspectFit" bindtap="" data-status="open" src="/image/audio/backward.svg"></image>
+      <!-- <image class="lyric-btn" mode="aspectFit" bindtap="" data-status="open" src="/image/audio/backward.svg"></image> -->
       <image class="list-btn" mode="aspectFit" bindtap="powerDrawer" data-status="close" src="/image/audio/list.bullet.svg"></image>
     </view>
   </view>

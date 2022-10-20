@@ -96,7 +96,7 @@
   position: absolute;
   width: 650rpx;
   height: 650rpx;
-  margin-top: 20%;
+  margin-top: 27%;
   border-radius: 10px;
   z-index: 1;
 }

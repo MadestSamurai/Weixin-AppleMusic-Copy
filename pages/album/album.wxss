@@ -171,4 +171,8 @@
   width: 90%;
   margin-top: 10px;
   margin-bottom: 30px;
+  display: -webkit-box;
+  -webkit-line-clamp: 40;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

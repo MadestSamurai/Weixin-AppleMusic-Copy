@@ -1,4 +1,5 @@
 <!--pages/album/album.wxml-->
+<text class="headerTitle">　</text>
 <view animation="{{animationData1}}" class="mask" catchtouchmove='true' wx:if="{{showModalStatus}}"></view>
 <view animation="{{animationData2}}" class="modalDlg" catchtouchmove='true' wx:if="{{showModalStatus}}">
   <text bindtap="powerDrawer" class="ok" data-status="close">完成</text>

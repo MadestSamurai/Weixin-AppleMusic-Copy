@@ -1,6 +1,6 @@
 <!--pages/search/search.wxml-->
 
-<view class="header" wx:if="{{searchKey == ''}}">
+<view class="header">
   <text class="headerTitle">搜索</text>
 </view>
 <view class="search">

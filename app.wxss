@@ -54,6 +54,8 @@
 }
 
 .headerTitle {
+  display: block;
+  padding-top: 3vh;
   font-size: 35px;
   line-height: 70px;
   font-weight: 700;
