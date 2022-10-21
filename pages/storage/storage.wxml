@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!-- storage.wxml -->
 <scroll-view class="scrollview" scroll-y="true">
   <view class="header">
     <text class="headerTitle">资料库</text>

@@ -1,6 +1,4 @@
-// index.js
-// 获取应用实例
-const app = getApp()
+// storage.js
 
 Page({
   data: {
@@ -12,10 +10,7 @@ Page({
       {icon: "/image/menu/download.svg", title: "已下载"}
     ]
   },
-  // 事件处理函数
-  bindViewTap() {
-    
-  },
+
   onLoad() {
     getApp().editTabBar();
 
