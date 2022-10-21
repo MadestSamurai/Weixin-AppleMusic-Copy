@@ -17,7 +17,6 @@
   height: 100%;
   background: url(http://49.234.6.100/images/default-artist.png);
   background-size: 100% 100%;
-  filter: linear-gradient(to bottom, brightness(100%), brightness(50%));
   z-index: -1;
 }
 

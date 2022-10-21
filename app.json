@@ -2,7 +2,6 @@
   "pages": [
     "pages/now/now",
     "pages/storage/storage",
-    "pages/logs/logs",
     "pages/explore/explore",
     "pages/broadcast/broadcast",
     "pages/album/album",

@@ -48,10 +48,6 @@
   font-weight: 600;
   color: gray;
 }
- 
-.clear {
-  clear: both;
-}
 
 .headerTitle {
   display: block;

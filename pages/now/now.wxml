@@ -4,14 +4,13 @@
 </view>
 
 <text class="subtitle">精选推荐</text>
-
-<scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
+<scroll-view class="scrollView" scroll-x="true" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
   <block wx:for="{{topTracks}}" wx:key="title">
     <div class="{{index==topTracks.length-1?'item-last':'item'}}" data-testid="{{item}}">
       <text class="introduce">热门推荐</text>
       <view class="card" bindtap="checkAlbum" data-item="{{item}}">
         <view class="poster">
-        <image class="cover" src='{{item.album.image[3]["#text"]}}'></image>
+        <image class="cover" src='{{item.album.image[3]["#text"]}}' mode="aspectFill"></image>
         </view>
         <div class="info">
           <text class="title">{{item.album.title}}</text>
@@ -28,7 +27,7 @@
 
 <text class="subtitle">最近播放</text>
 
-<scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
+<scroll-view class="scrollView" scroll-x="true" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
   <block wx:for="{{showData.recent}}" wx:key="title">
     <div class="{{index==0?'nm-item-first':index==showData.recent.length-1?'nm-item-last':'nm-item'}}" data-testid="{{item}}">
       <image class="nm_cover" src="{{item.poster_img}}" mode="aspectFill"></image>
@@ -41,7 +40,7 @@
 <block wx:for="{{showData.others}}" wx:key="title" wx:for-item="list">
   <text class="subtitle">{{list.type}}</text>
 
-  <scroll-view scroll-x="true" style="width:100%;white-space: nowrap; display: flex;" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
+  <scroll-view class="scrollView" scroll-x="true" bindscrolltolower="handleScroll" enhanced="true" paging-enabled="true" show-scrollbar="false">
     <block wx:for="{{list.content}}" wx:key="title">
       <div class="{{index==0?'nm-item-first':index==list.content.length-1?'nm-item-last':'nm-item'}}" data-testid="{{item}}">
         <image class="nm_cover" src="{{item.poster_img}}" mode="aspectFill"></image>

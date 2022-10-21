@@ -14,7 +14,6 @@
   padding-left: 20rpx;
   align-items: center;
   display: flex;
-  /*width:100%;*/
 }
 
 .search {
@@ -32,9 +31,6 @@
 
 .nm_title {
   display: block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
   color: white;
   line-height: 20px;
   font-size: 14px;
@@ -153,7 +149,6 @@
 .list-item .list-info{
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .list-item .list-info .list-name{

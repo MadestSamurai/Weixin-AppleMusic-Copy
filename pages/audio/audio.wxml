@@ -24,7 +24,7 @@
   </scroll-view>
   <view class="text" animation="{{animationData}}" wx:if="{{!isList}}">
     <text class="music-name">{{music.name}}</text>
-    <text class="music-author">{{music.author}}</text>
+    <text class="music-author" bindtap="checkArtist">{{music.author}}</text>
   </view>
 
   <view class="progress-container">

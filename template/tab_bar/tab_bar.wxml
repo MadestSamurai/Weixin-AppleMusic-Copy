@@ -8,6 +8,6 @@
         <text class="{{item.active?'tabTextHl':'tabTextNm'}}">{{item.text}}</text>
       </navigator>
     </block>
-    <view class="clear"></view>
+    <!-- <view class="clear"></view> -->
   </view>
 </template>

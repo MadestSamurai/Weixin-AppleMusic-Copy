@@ -143,7 +143,8 @@ Page({
     this.setData({
       music
     })
-    this.musicControl();
+    this.bam.src = this.data.music.url;
+    this.bam.title = this.data.music.name;
   },
   handleTap(event) {
     const {
@@ -157,7 +158,8 @@ Page({
     this.setData({
       music
     });
-    this.musicControl();
+    this.bam.src = this.data.music.url;
+    this.bam.title = this.data.music.name;
   },
   showList() {
     if (this.data.isList) {
@@ -210,5 +212,11 @@ Page({
         });
       }
     }.bind(this), 300)
+  },
+
+  checkArtist() {
+    wx.navigateTo({
+      url: '../artist/artist?name=' + this.data.music.author + '&mbid='
+    })
   }
 })

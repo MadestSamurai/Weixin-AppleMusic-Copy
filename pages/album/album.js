@@ -38,6 +38,7 @@ Page({
         let data = resp.data.album;
         let date = new Date(options.published);
         if ('wiki' in data) {
+          date = new Date(data.wiki.published);
           let content = data.wiki.content.split('<a')[0];
           this.setData({
             cover: data.image[3]["#text"],
@@ -123,14 +124,14 @@ Page({
 
   move: function (currentStatus) {
     var animation = wx.createAnimation({
-      duration: 300, //动画时长  
+      duration: 500, //动画时长  
       timingFunction: "ease-out", //线性  
       delay: 0 //0则不延迟  
     });
 
     this.animation = animation;
 
-    animation.translate(0,1500).step();
+    animation.translate(0,1000).step();
 
     // 导出动画对象赋给数据对象储存  
     this.setData({
@@ -171,52 +172,45 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  playAlbum() {
+    let songList = this.data.songlist;
+    var list = [];
+    for(var i = 0, len = songList.length; i < len; i++) {
+      var jsonObj = new Object();
+      jsonObj.id = i;
+      jsonObj.name = songList[i].name;
+      jsonObj.author = songList[i].artist.name;
+      jsonObj.picUrl = this.data.cover;
+      jsonObj.url = host+'/music/Dangerous World/'+util.zeroFill(i+1+'',2)+'.mp3'
+      list.push(jsonObj);
+    }
+    console.log(list);
+    wx.navigateTo({
+      url: '../audio/audio?list='+JSON.stringify(list)+'&index='+ 0 +'&album='+this.data.title,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
+  shuffleAlbum() {
+    let songList = this.data.songlist;
+    var list = [];
+    for(var i = 0, len = songList.length; i < len; i++) {
+      var jsonObj = new Object();
+      jsonObj.id = i;
+      jsonObj.name = songList[i].name;
+      jsonObj.author = songList[i].artist.name;
+      jsonObj.picUrl = this.data.cover;
+      jsonObj.url = host+'/music/Dangerous World/'+util.zeroFill(i+1+'',2)+'.mp3'
+      list.push(jsonObj);
+    }
+    console.log(list);
+    wx.navigateTo({
+      url: '../audio/audio?list='+JSON.stringify(list)+'&index='+ 0 +'&album='+this.data.title,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  checkArtist() {
+    wx.navigateTo({
+      url: '../artist/artist?name=' + this.data.artist + '&mbid='
+    })
   }
 })

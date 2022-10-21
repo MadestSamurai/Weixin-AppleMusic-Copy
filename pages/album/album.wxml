@@ -10,15 +10,15 @@
 <view class="poster">
   <image class="cover" src='{{cover}}' mode="aspectFill"></image>
   <text class="title">{{title}}</text>
-  <text class="artist">{{artist}}</text>
+  <text class="artist" bindtap="checkArtist">{{artist}}</text>
   <text class="genre-and-year">{{genre}} · {{year}}</text>
-  <view class='button' bindtap="play_album">
+  <view class='button' bindtap="playAlbum">
     <view class='button-content'>
       <image src="/image/menu/play.svg" class="icon"></image>
       <text class="button-text">播放</text>
     </view>
   </view>
-  <view class='button' bindtap="shuffle_album">
+  <view class='button' bindtap="shuffleAlbum">
     <view class='button-content'>
       <image src="/image/menu/shuffle.svg" class="icon"></image>
       <text class="button-text">随机播放</text>
