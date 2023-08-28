@@ -21,6 +21,14 @@ The remaining part of the data last.fm can not provide, taking into account the 
 
 
 
+## 提醒 Warning
+
+**你需要获取自己的last.fm API，小程序内的appid也需要替换。**
+
+**You need to get your own last.fm API and the appid within the applet needs to be replaced.**
+
+
+
 ## 示例图片  Example Image
 
 ![](https://github.com/MadestSamurai/Weixin-AppleMusic-Copy/blob/main/images/image36.jpeg)
