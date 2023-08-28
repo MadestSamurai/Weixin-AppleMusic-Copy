@@ -57,7 +57,7 @@ Page({
             data: {
               method: 'artist.gettoptracks',
               format: 'json',
-              api_key: '78584ea17d70aa799c0a973b70752424',
+              api_key: 'YOUR_API_KEY',
               artist: options.name,
               mbid: options.mbid
             },
@@ -79,7 +79,7 @@ Page({
             data: {
               method: 'artist.gettopalbums',
               format: 'json',
-              api_key: '78584ea17d70aa799c0a973b70752424',
+              api_key: 'YOUR_API_KEY',
               artist: options.name,
               mbid: options.mbid
             },
@@ -95,7 +95,7 @@ Page({
             data: {
               method: 'artist.getsimilar',
               format: 'json',
-              api_key: '78584ea17d70aa799c0a973b70752424',
+              api_key: 'YOUR_API_KEY',
               artist: options.name,
               mbid: options.mbid
             },
@@ -124,7 +124,7 @@ Page({
         data: {
           method: 'track.getInfo',
           format: 'json',
-          api_key: '78584ea17d70aa799c0a973b70752424',
+          api_key: 'YOUR_API_KEY',
           artist: artist,
           track: track
         },

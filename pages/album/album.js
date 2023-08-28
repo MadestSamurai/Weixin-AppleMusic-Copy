@@ -29,7 +29,7 @@ Page({
       data: {
         method: 'album.getInfo',
         format: 'json',
-        api_key: '78584ea17d70aa799c0a973b70752424',
+        api_key: 'YOUR_API_KEY',
         artist: options.artist,
         album: options.title,
       },
@@ -38,8 +38,16 @@ Page({
         let data = resp.data.album;
         let date = new Date(options.published);
         if ('wiki' in data) {
+          var tracks = new Array();
+          if (Array.isArray(data.tracks.track)) {
+            tracks = data.tracks.track;
+          } else {
+            options.title = options.title + ' - Single';
+            tracks[0] = data.tracks.track;
+          }
           date = new Date(data.wiki.published);
           let content = data.wiki.content.split('<a')[0];
+          if(data.tags == "") data.tags = {"tag":[{"name": "unknown"}]}
           this.setData({
             cover: data.image[3]["#text"],
             title: options.title,
@@ -48,7 +56,7 @@ Page({
             year: date.getFullYear(),
             hasIntro: true,
             introduction: content,
-            songlist: data.tracks.track,
+            songlist: tracks,
             date: date.toDateString()
           })
         } else {
@@ -59,7 +67,7 @@ Page({
             options.title = options.title + ' - Single';
             tracks[0] = data.tracks.track;
           }
-          if(data.tags == "") data.tags = {"tag":[{"name": "unknown"}]}
+          if(data.tags == "") data.tags = {"tag":[{"name": "unknown"}]};
           this.setData({
             cover: data.image[3]["#text"],
             title: options.title,
