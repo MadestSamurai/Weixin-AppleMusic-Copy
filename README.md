@@ -1,5 +1,5 @@
 # Weixin-AppleMusic-Copy
-### 介绍 Introduction
+## 介绍 Introduction
 
 Apple Music 苹果音乐的微信小程序仿版，资源问题不支持实际的音乐播放。
 
@@ -21,9 +21,12 @@ The remaining part of the data last.fm can not provide, taking into account the 
 
 
 
-### 示例图片  Example Image
+## 示例图片  Example Image
 
-[Weixin-AppleMusic-Copy/images/image25.jpeg at main · MadestSamurai/Weixin-AppleMusic-Copy (github.com)](https://github.com/MadestSamurai/Weixin-AppleMusic-Copy/blob/main/images/image25.jpeg)
+![](https://github.com/MadestSamurai/Weixin-AppleMusic-Copy/blob/main/images/image25.jpeg)
 
-[Weixin-AppleMusic-Copy/images/image28.png at main · MadestSamurai/Weixin-AppleMusic-Copy (github.com)](https://github.com/MadestSamurai/Weixin-AppleMusic-Copy/blob/main/images/image28.png)
+![](https://github.com/MadestSamurai/Weixin-AppleMusic-Copy/blob/main/images/image28.png)
 
+![](https://github.com/MadestSamurai/Weixin-AppleMusic-Copy/blob/main/images/image29.png)
+
+![](https://github.com/MadestSamurai/Weixin-AppleMusic-Copy/blob/main/images/image30.jpeg)
